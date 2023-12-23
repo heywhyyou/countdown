@@ -1,14 +1,18 @@
 import "./App.css";
 import Form from "./components/Form/Form";
 import Countdown from "./components/Countdown/Countdown";
-import Button from "./components/Button/Button";
-
+import { useState } from "react";
 function App() {
+  const [value, setValue] = useState(null);
+
+  function handleProps(value) {
+    setValue(value);
+  }
+
   return (
     <>
-      <Form />
-      <Button />
-      <Countdown />
+      <Form onProps={handleProps} />
+      <Countdown value={value} />
     </>
   );
 }
